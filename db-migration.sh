@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Copy the .env.example to .env
+cp .env.example .env
+
+# Run artisan commands
+php artisan key:generate
 php artisan migrate --force
 
-apache2-foreground
+# Start Apache
+exec apache2-foreground
