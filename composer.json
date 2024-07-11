@@ -47,7 +47,9 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
+        "chmoder" : "chmod -R 777 storage bootstrap /usr/lib/node_modules /usr/bin && chown -R 1001:1001 /usr/lib/node_modules /usr/bin/",
         "ci": [
+            "@chmoder",
             "npm install",
             "npm run build"
         ]
