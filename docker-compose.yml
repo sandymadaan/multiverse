@@ -4,6 +4,8 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
+            args:
+                PORT: 8080
         container_name: multiverse-api
         depends_on:
             - multiverse-api-pg

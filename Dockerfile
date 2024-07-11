@@ -10,7 +10,7 @@ RUN composer install -n --prefer-dist
 RUN composer run ci
 
 RUN sed -i 's/80/${PORT}/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
+EXPOSE ${PORT}
 
-RUN chmod +x /var/www/html/db-migration.sh
-
-ENTRYPOINT ["/var/www/html/db-migration.sh"]
+# Start Apache in the foreground
+CMD ["apache2-foreground"]
